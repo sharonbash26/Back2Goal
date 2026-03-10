@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "Back to Goal",
+    "version": "1.0",
+    "description": "Stay focused and minimize distractions with AI reminders.",
+    "permissions": [
+        "storage",
+        "tabs"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
