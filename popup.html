@@ -150,13 +150,13 @@
             <h1 id="schedule-title" class="page-title">Active Days</h1>
             <div class="card">
               <div class="day-buttons" role="group" aria-label="Select active days">
+                <button type="button" class="day-btn" data-day="sun" aria-pressed="false">S</button>
                 <button type="button" class="day-btn" data-day="mon" aria-pressed="true">M</button>
                 <button type="button" class="day-btn" data-day="tue" aria-pressed="true">T</button>
                 <button type="button" class="day-btn" data-day="wed" aria-pressed="true">W</button>
                 <button type="button" class="day-btn" data-day="thu" aria-pressed="true">T</button>
                 <button type="button" class="day-btn" data-day="fri" aria-pressed="true">F</button>
                 <button type="button" class="day-btn" data-day="sat" aria-pressed="false">S</button>
-                <button type="button" class="day-btn" data-day="sun" aria-pressed="false">S</button>
               </div>
               <div class="schedule-controls">
                 <div class="time-row">
@@ -168,10 +168,6 @@
                   <input type="time" id="end-time" class="time-input" value="18:00" aria-label="Protection end time">
                 </div>
               </div>
-              <label class="checkbox-row">
-                <input type="checkbox" id="pause-today" class="checkbox-input" aria-label="Pause protection for today">
-                <span class="checkbox-label">Pause protection for today</span>
-              </label>
             </div>
           </section>
 
