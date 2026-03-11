@@ -39,12 +39,18 @@ function initNavigation() {
 
 function initProtectionToggle() {
   const toggle = document.getElementById('protection-toggle');
-  const statusEl = document.getElementById('protection-status');
+  const statusLabel = document.getElementById('protection-status-label');
 
-  toggle?.addEventListener('change', () => {
-    const isOn = toggle.checked;
-    statusEl.textContent = isOn ? 'Your focus shield is active' : 'Protection is off';
-  });
+  function updateLabel() {
+    if (!statusLabel) return;
+    const isOn = toggle?.checked ?? true;
+    statusLabel.textContent = isOn ? 'ON' : 'OFF';
+    statusLabel.classList.toggle('on', isOn);
+    statusLabel.classList.toggle('off', !isOn);
+  }
+
+  toggle?.addEventListener('change', updateLabel);
+  updateLabel();
 }
 
 function initScheduleControls() {
@@ -82,10 +88,12 @@ function loadSettings() {
         const toggle = document.getElementById('protection-toggle');
         if (toggle && data.protectionEnabled !== undefined) {
           toggle.checked = data.protectionEnabled;
-          const statusEl = document.getElementById('protection-status');
-          statusEl.textContent = data.protectionEnabled
-            ? 'Your focus shield is active'
-            : 'Protection is off';
+          const statusLabel = document.getElementById('protection-status-label');
+          if (statusLabel) {
+            statusLabel.textContent = data.protectionEnabled ? 'ON' : 'OFF';
+            statusLabel.classList.toggle('on', data.protectionEnabled);
+            statusLabel.classList.toggle('off', !data.protectionEnabled);
+          }
         }
         if (data.startTime) {
           const startInput = document.getElementById('start-time');

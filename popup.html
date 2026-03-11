@@ -14,8 +14,14 @@
     <header class="header">
       <div class="logo">
         <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
-          <circle cx="12" cy="12" r="4" fill="currentColor"/>
+          <!-- Target circles -->
+          <circle cx="12" cy="12" r="10" stroke="#10B981" stroke-width="1.5" fill="none"/>
+          <circle cx="12" cy="12" r="6" stroke="#10B981" stroke-width="1" fill="none"/>
+          <circle cx="12" cy="12" r="2.5" fill="#10B981"/>
+          <!-- Arrow: shaft from top-left to center -->
+          <line x1="2.5" y1="2.5" x2="9" y2="9" stroke="#10B981" stroke-width="1.8" stroke-linecap="round"/>
+          <!-- Arrowhead pointing at dead center -->
+          <polygon points="12,12 9,10 10,9" fill="#10B981"/>
         </svg>
         <span class="logo-text">Back2Goal</span>
       </div>
@@ -69,17 +75,18 @@
             <h1 id="overview-title" class="page-title">Protection Overview</h1>
 
             <div class="card card-protection">
-              <div class="card-header-row">
-                <h2 class="card-title">Protection</h2>
-                <label class="toggle-wrapper">
-                  <input type="checkbox" id="protection-toggle" class="toggle-input" checked aria-label="Toggle protection on or off">
-                  <span class="toggle-track">
-                    <span class="toggle-thumb"></span>
-                  </span>
-                </label>
+              <div class="protection-row">
+                <span class="protection-label-text">Protection</span>
+                <div class="protection-controls">
+                  <span id="protection-status-label" class="protection-status-label on" aria-live="polite">ON</span>
+                  <label class="toggle-wrapper">
+                    <input type="checkbox" id="protection-toggle" class="toggle-input" checked aria-label="Toggle protection on or off">
+                    <span class="toggle-track">
+                      <span class="toggle-thumb"></span>
+                    </span>
+                  </label>
+                </div>
               </div>
-              <p id="protection-status" class="protection-message">Your focus shield is active</p>
-              <p class="protection-sub">Currently protecting your focus</p>
             </div>
 
             <div class="card">
@@ -127,17 +134,14 @@
                   <span class="blocked-name">YouTube</span>
                   <span class="badge badge-blocked">Blocked</span>
                 </li>
-                <li class="blocked-row">
-                  <span class="blocked-name">TikTok</span>
-                  <span class="badge badge-blocked">Blocked</span>
-                </li>
               </ul>
             </div>
 
-            <div class="card card-pro">
-              <h2 class="card-title">Unlock PRO</h2>
-              <p class="pro-text">Add custom websites, advanced schedules, and smarter reminders.</p>
-              <button type="button" class="btn btn-pro">Upgrade to PRO</button>
+            <div class="mini-pro-banner">
+              <button type="button" class="btn btn-upgrade" aria-label="Upgrade to PRO for $1.99 per month">
+                Upgrade to PRO — Only $1.99/mo
+              </button>
+              <p class="mini-pro-trust">Cancel anytime</p>
             </div>
           </section>
 
@@ -216,7 +220,11 @@
                   Better personalization
                 </li>
               </ul>
-              <button type="button" class="btn btn-primary btn-full">Upgrade to PRO</button>
+              <p class="pro-price">$1.99 / month</p>
+              <div class="pro-cta-wrapper">
+                <button type="button" class="btn btn-primary btn-full">Upgrade to PRO</button>
+                <p class="pro-trust">Cancel anytime</p>
+              </div>
             </div>
           </section>
         </div>
