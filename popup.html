@@ -10,10 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="popup-container">
-    <header class="header">
-      <div class="logo">
-        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <header class="header" role="banner">
+      <div class="logo" aria-label="Back2Goal">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
           <!-- Target circles -->
           <circle cx="12" cy="12" r="10" stroke="#10B981" stroke-width="1.5" fill="none"/>
           <circle cx="12" cy="12" r="6" stroke="#10B981" stroke-width="1" fill="none"/>
@@ -23,16 +24,16 @@
           <!-- Arrowhead pointing at dead center -->
           <polygon points="12,12 9,10 10,9" fill="#10B981"/>
         </svg>
-        <span class="logo-text">Back2Goal</span>
+        <span class="logo-text" aria-hidden="true">Back2Goal</span>
       </div>
     </header>
 
     <div class="layout">
-      <nav class="sidebar" role="navigation" aria-label="Main navigation">
-        <ul class="nav-list">
-          <li>
+      <nav class="sidebar" aria-label="Main navigation">
+        <ul class="nav-list" role="list">
+          <li role="listitem">
             <button type="button" class="nav-btn active" data-page="overview" aria-label="Overview" aria-current="page">
-              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
                 <rect x="3" y="3" width="7" height="7" rx="1"/>
                 <rect x="14" y="3" width="7" height="7" rx="1"/>
                 <rect x="3" y="14" width="7" height="7" rx="1"/>
@@ -40,9 +41,9 @@
               </svg>
             </button>
           </li>
-          <li>
-            <button type="button" class="nav-btn" data-page="schedule" aria-label="Schedule">
-              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <li role="listitem">
+            <button type="button" class="nav-btn" data-page="schedule" aria-label="Settings">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
                 <rect x="3" y="4" width="18" height="18" rx="2"/>
                 <line x1="16" y1="2" x2="16" y2="6"/>
                 <line x1="8" y1="2" x2="8" y2="6"/>
@@ -50,17 +51,9 @@
               </svg>
             </button>
           </li>
-          <li>
-            <button type="button" class="nav-btn" data-page="reminders" aria-label="Reminders">
-              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-              </svg>
-            </button>
-          </li>
-          <li>
-            <button type="button" class="nav-btn" data-page="upgrade" aria-label="Upgrade">
-              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <li role="listitem">
+            <button type="button" class="nav-btn" data-page="upgrade" aria-label="Upgrade to PRO">
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
               </svg>
             </button>
@@ -68,20 +61,23 @@
         </ul>
       </nav>
 
-      <main class="main">
+      <main class="main" id="main-content" tabindex="-1">
         <div class="content-wrapper">
           <!-- Overview Page -->
           <section id="page-overview" class="page active" aria-labelledby="overview-title">
             <h1 id="overview-title" class="page-title">Protection Overview</h1>
 
-            <div class="card card-protection">
+            <div class="card card-protection" role="region" aria-label="Protection status">
               <div class="protection-row">
-                <span class="protection-label-text">Protection</span>
+                <span class="protection-label-text" id="protection-label">Protection</span>
                 <div class="protection-controls">
-                  <span id="protection-status-label" class="protection-status-label on" aria-live="polite">ON</span>
-                  <label class="toggle-wrapper">
-                    <input type="checkbox" id="protection-toggle" class="toggle-input" checked aria-label="Toggle protection on or off">
-                    <span class="toggle-track">
+                  <span id="protection-status-label" class="protection-status-label on" aria-live="polite" aria-atomic="true">ON</span>
+                  <label class="toggle-wrapper" aria-labelledby="protection-label">
+                    <input type="checkbox" id="protection-toggle" class="toggle-input" checked
+                      role="switch"
+                      aria-checked="true"
+                      aria-describedby="protection-status-label">
+                    <span class="toggle-track" aria-hidden="true">
                       <span class="toggle-thumb"></span>
                     </span>
                   </label>
@@ -89,52 +85,78 @@
               </div>
             </div>
 
-            <div class="card">
+            <div class="card" role="region" aria-label="Quick summary">
               <h2 class="card-title">Quick Summary</h2>
-              <div class="summary-row">
-                <span class="summary-label">
-                  <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <rect x="3" y="4" width="18" height="18" rx="2"/>
-                    <line x1="16" y1="2" x2="16" y2="6"/>
-                    <line x1="8" y1="2" x2="8" y2="6"/>
-                    <line x1="3" y1="10" x2="21" y2="10"/>
-                  </svg>
-                  Active days
-                </span>
-                <span class="summary-value">Mon–Fri</span>
-              </div>
-              <div class="summary-row">
-                <span class="summary-label">
-                  <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-                  </svg>
-                  Reminder interval
-                </span>
-                <span class="summary-value">15 min</span>
-              </div>
-              <div class="summary-row">
-                <span class="summary-label">Current plan</span>
-                <span class="summary-value">Free</span>
-              </div>
+              <dl class="summary-list">
+                <div class="summary-row">
+                  <dt class="summary-label">
+                    <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                      <rect x="3" y="4" width="18" height="18" rx="2"/>
+                      <line x1="16" y1="2" x2="16" y2="6"/>
+                      <line x1="8" y1="2" x2="8" y2="6"/>
+                      <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    Active days
+                  </dt>
+                  <dd class="summary-value">Mon–Fri</dd>
+                </div>
+                <div class="summary-row">
+                  <dt class="summary-label">
+                    <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                      <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                    </svg>
+                    Reminder interval
+                  </dt>
+                  <dd class="summary-value">15 min</dd>
+                </div>
+                <div class="summary-row">
+                  <dt class="summary-label">Current plan</dt>
+                  <dd class="summary-value">Free</dd>
+                </div>
+              </dl>
             </div>
 
-            <div class="card">
-              <h2 class="card-title">Included blocked sites</h2>
-              <ul class="blocked-list" role="list">
+            <div class="card" role="region" aria-label="Blocked sites">
+              <h2 class="card-title" id="blocked-sites-heading">Distraction Zones</h2>
+              <ul class="blocked-list" id="blocked-sites-list" role="list" aria-labelledby="blocked-sites-heading">
                 <li class="blocked-row">
                   <span class="blocked-name">Facebook</span>
-                  <span class="badge badge-blocked">Blocked</span>
+                  <div class="blocked-row-actions">
+                    <button type="button" class="btn-remove-site" aria-label="Remove Facebook from blocked sites">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                  </div>
                 </li>
                 <li class="blocked-row">
                   <span class="blocked-name">Instagram</span>
-                  <span class="badge badge-blocked">Blocked</span>
+                  <div class="blocked-row-actions">
+                    <button type="button" class="btn-remove-site" aria-label="Remove Instagram from blocked sites">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                  </div>
                 </li>
                 <li class="blocked-row">
-                  <span class="blocked-name">YouTube</span>
-                  <span class="badge badge-blocked">Blocked</span>
+                  <span class="blocked-name">Ynet</span>
+                  <div class="blocked-row-actions">
+                    <button type="button" class="btn-remove-site" aria-label="Remove Ynet from blocked sites">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                  </div>
+                </li>
+                <li class="blocked-row">
+                  <span class="blocked-name">TikTok</span>
+                  <div class="blocked-row-actions">
+                    <button type="button" class="btn-remove-site" aria-label="Remove TikTok from blocked sites">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                  </div>
                 </li>
               </ul>
+              <button type="button" class="btn-add-site" id="btn-add-site" aria-label="Add a distracting site">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add site
+              </button>
             </div>
 
             <div class="mini-pro-banner">
@@ -145,81 +167,94 @@
             </div>
           </section>
 
-          <!-- Schedule Page -->
+          <!-- Schedule + Reminders (combined Settings page) -->
           <section id="page-schedule" class="page" aria-labelledby="schedule-title" hidden>
-            <h1 id="schedule-title" class="page-title">Active Days</h1>
-            <div class="card">
-              <div class="day-buttons" role="group" aria-label="Select active days">
-                <button type="button" class="day-btn" data-day="sun" aria-pressed="false">S</button>
-                <button type="button" class="day-btn" data-day="mon" aria-pressed="true">M</button>
-                <button type="button" class="day-btn" data-day="tue" aria-pressed="true">T</button>
-                <button type="button" class="day-btn" data-day="wed" aria-pressed="true">W</button>
-                <button type="button" class="day-btn" data-day="thu" aria-pressed="true">T</button>
-                <button type="button" class="day-btn" data-day="fri" aria-pressed="true">F</button>
-                <button type="button" class="day-btn" data-day="sat" aria-pressed="false">S</button>
+            <h1 id="schedule-title" class="page-title">Settings</h1>
+
+            <div class="card" role="region" aria-labelledby="active-days-heading">
+              <h2 class="card-title" id="active-days-heading">Active Days</h2>
+              <div class="day-buttons" role="group" aria-labelledby="active-days-heading">
+                <button type="button" class="day-btn" data-day="sun" aria-pressed="false" aria-label="Sunday">Su</button>
+                <button type="button" class="day-btn" data-day="mon" aria-pressed="true" aria-label="Monday">Mo</button>
+                <button type="button" class="day-btn" data-day="tue" aria-pressed="true" aria-label="Tuesday">Tu</button>
+                <button type="button" class="day-btn" data-day="wed" aria-pressed="true" aria-label="Wednesday">We</button>
+                <button type="button" class="day-btn" data-day="thu" aria-pressed="true" aria-label="Thursday">Th</button>
+                <button type="button" class="day-btn" data-day="fri" aria-pressed="true" aria-label="Friday">Fr</button>
+                <button type="button" class="day-btn" data-day="sat" aria-pressed="false" aria-label="Saturday">Sa</button>
               </div>
               <div class="schedule-controls">
                 <div class="time-row">
                   <label for="start-time" class="time-label">Start time</label>
-                  <input type="time" id="start-time" class="time-input" value="09:00" aria-label="Protection start time">
+                  <input type="time" id="start-time" class="time-input" value="09:00">
                 </div>
                 <div class="time-row">
                   <label for="end-time" class="time-label">End time</label>
-                  <input type="time" id="end-time" class="time-input" value="18:00" aria-label="Protection end time">
+                  <input type="time" id="end-time" class="time-input" value="18:00">
                 </div>
               </div>
             </div>
-          </section>
 
-          <!-- Reminders Page -->
-          <section id="page-reminders" class="page" aria-labelledby="reminders-title" hidden>
-            <h1 id="reminders-title" class="page-title">Reminder Frequency</h1>
-            <div class="card">
-              <p class="helper-text">Choose how often Back2Goal reminds you to refocus.</p>
-              <div class="segmented-control" role="group" aria-label="Reminder interval">
-                <button type="button" class="segmented-btn" data-interval="5" aria-pressed="false">5m</button>
-                <button type="button" class="segmented-btn active" data-interval="15" aria-pressed="true">15m</button>
-                <button type="button" class="segmented-btn" data-interval="60" aria-pressed="false">1h</button>
-                <button type="button" class="segmented-btn" data-interval="120" aria-pressed="false">2h</button>
-                <button type="button" class="segmented-btn" data-interval="180" aria-pressed="false">3h</button>
+            <div class="card" role="region" aria-labelledby="reminder-heading">
+              <h2 class="card-title" id="reminder-heading">Reminder Frequency</h2>
+              <p class="helper-text">Set focus reminders</p>
+              <div class="reminder-value-row">
+                <span class="reminder-value-label" id="reminder-value-display" aria-live="polite" aria-atomic="true">Every 15 min</span>
+              </div>
+              <div class="reminder-slider-wrapper">
+                <label for="reminder-slider" class="sr-only">Reminder interval</label>
+                <input
+                  type="range"
+                  id="reminder-slider"
+                  class="reminder-slider"
+                  min="5"
+                  max="300"
+                  step="5"
+                  value="15"
+                  aria-label="Reminder interval"
+                  aria-valuemin="5"
+                  aria-valuemax="300"
+                  aria-valuenow="15"
+                  aria-valuetext="Every 15 minutes"
+                >
+                <div class="reminder-slider-ticks" aria-hidden="true">
+                  <span>5m</span>
+                  <span>1h</span>
+                  <span>2h</span>
+                  <span>3h</span>
+                  <span>5h</span>
+                </div>
               </div>
             </div>
           </section>
 
           <!-- Upgrade Page -->
           <section id="page-upgrade" class="page" aria-labelledby="upgrade-title" hidden>
-            <h1 id="upgrade-title" class="page-title">Upgrade</h1>
+            <h1 id="upgrade-title" class="page-title">Upgrade to PRO</h1>
+            <p class="upgrade-slogan">Time-keep it.</p>
             <div class="card card-upgrade">
-              <ul class="feature-list" role="list">
+              <ul class="feature-list" role="list" aria-label="PRO features">
                 <li class="feature-item">
-                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"/>
-                  </svg>
-                  Add custom websites
+                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong class="feature-title">Goal Nudges:</strong> <span class="feature-desc">Focus on your specific tasks with personal reminders.</span></span>
                 </li>
                 <li class="feature-item">
-                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"/>
-                  </svg>
-                  More flexible schedules
+                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong class="feature-title">Guilt-Free Days:</strong> <span class="feature-desc">Stay on track and avoid late-night regret.</span></span>
                 </li>
                 <li class="feature-item">
-                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"/>
-                  </svg>
-                  Advanced reminders
+                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong class="feature-title">Burnout Protection:</strong> <span class="feature-desc">Know when it's time to stop and rest.</span></span>
                 </li>
                 <li class="feature-item">
-                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"/>
-                  </svg>
-                  Better personalization
+                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong class="feature-title">Unlimited Focus:</strong> <span class="feature-desc">Keepi guards you on as many sites as you want.</span></span>
                 </li>
               </ul>
-              <p class="pro-price">$1.99 / month</p>
+              <p class="pro-price" aria-label="Price: $1.99 per month">$1.99 / month</p>
               <div class="pro-cta-wrapper">
-                <button type="button" class="btn btn-primary btn-full">Upgrade to PRO</button>
-                <p class="pro-trust">Cancel anytime</p>
+                <button type="button" class="btn btn-primary btn-full" aria-label="Upgrade to PRO for $1.99 per month">Upgrade to PRO</button>
+                <p class="upgrade-tagline">Time-keep it.</p>
+                <p class="pro-trust" aria-label="Subscription can be cancelled anytime">Cancel anytime</p>
               </div>
             </div>
           </section>
@@ -227,10 +262,33 @@
       </main>
     </div>
 
-    <footer class="footer">
-      <button type="button" id="save-settings" class="btn btn-primary btn-save">Save Settings</button>
+    <footer class="footer" role="contentinfo">
+      <button type="button" id="save-settings" class="btn btn-primary btn-save" aria-label="Save all settings">Save Settings</button>
+      <button type="button" id="test-kaipy" class="btn btn-test-kaipy" aria-label="Test Kaipy milestone animation" hidden>🦔 Test Kaipy</button>
     </footer>
   </div>
+
+  <!-- Custom Modal -->
+  <div id="app-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-message" hidden>
+    <div class="modal-box">
+      <h2 id="modal-title" class="modal-title"></h2>
+      <div id="modal-message" class="modal-message"></div>
+      <div id="modal-actions" class="modal-actions" role="group" aria-label="Dialog actions"></div>
+    </div>
+  </div>
+
+  <!-- Keepi Confetti Canvas -->
+  <canvas id="kaipy-confetti" aria-hidden="true"></canvas>
+
+  <!-- Keepi Milestone -->
+  <div id="kaipy-container" class="kaipy-container" hidden aria-live="polite" aria-label="Keepi milestone: 1 hour of focus">
+    <div class="kaipy-bubble" id="kaipy-bubble">
+      1 Hour of Deep Focus!<br>Keepi is proud of you, Keep it up!
+    </div>
+    <img src="keepi_cutout.png" alt="Keepi the mascot celebrating your focus milestone" class="keepi-character" draggable="false" aria-hidden="true">
+  </div>
+
   <script src="popup.js"></script>
 </body>
 </html>
+  
