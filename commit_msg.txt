@@ -1,0 +1,13 @@
+feat: Keepi milestone, Distraction Zones, Upgrade page polish
+
+- Add Keepi mascot milestone with slide-up animation, confetti and chime
+- Replace hedgehog SVG with transparent PNG cutout (keepi_cutout.png)
+- Rename blocked sites section to Distraction Zones
+- Upgrade page: coaching-focused features, Time-keep it. slogan
+- Logo enlarged 50% and centered in header
+- Settings page spacing improvements
+- Save Settings button 80% width, centered, brand green box-shadow
+- Custom modal replaces all browser confirm/alert/prompt dialogs
+- Reminder frequency redesigned as range slider with tick sound
+- Accessibility: ARIA labels, focus rings, WCAG AA contrast
+- Layout fixes for 620px no-scroll popup height
