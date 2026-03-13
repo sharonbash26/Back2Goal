@@ -17,7 +17,15 @@
         {
             "matches": ["<all_urls>"],
             "js": ["content.js"],
-            "css": ["overlay.css"]
+            "css": ["overlay.css"],
+            "run_at": "document_idle",
+            "world": "ISOLATED"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["keepi_cutout.png"],
+            "matches": ["<all_urls>"]
         }
     ]
 }

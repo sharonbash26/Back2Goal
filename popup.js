@@ -4,7 +4,7 @@
  */
 
 const FREE_PLAN_LIMIT = 4;
-const DEFAULT_BLOCKED_SITES = ['Facebook', 'Instagram', 'Ynet', 'TikTok'];
+const DEFAULT_BLOCKED_SITES = ['facebook.com', 'instagram.com', 'ynet.co.il', 'tiktok.com'];
 
 // Ordered to match data-day attributes in the HTML (Sun → Sat)
 const DAY_ORDER = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
