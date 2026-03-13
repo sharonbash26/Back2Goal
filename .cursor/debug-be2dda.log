@@ -201,3 +201,15 @@
 {"sessionId":"be2dda","runId":"v5","location":"content.js:runCheck","message":"start","data":{"hostname":"github.com"},"timestamp":1773445726550,"hypothesisId":"B"}
 {"sessionId":"be2dda","runId":"v5","location":"content.js:storage","message":"storage read","data":{"hostname":"github.com"},"timestamp":1773445726736,"hypothesisId":"B-C"}
 {"sessionId":"be2dda","runId":"v5","location":"content.js:decision","message":"block decision","data":{"hostname":"github.com","zones":["facebook.com","instagram.com","tiktok.com","ynet.co.il"],"blocked":false},"timestamp":1773445726738,"hypothesisId":"C"}
+{"sessionId":"be2dda","runId":"v5","location":"content.js:runCheck","message":"start","data":{"hostname":"github.com"},"timestamp":1773445821302,"hypothesisId":"B"}
+{"sessionId":"be2dda","runId":"v5","location":"content.js:storage","message":"storage read","data":{"hostname":"github.com"},"timestamp":1773445821619,"hypothesisId":"B-C"}
+{"sessionId":"be2dda","runId":"v5","location":"content.js:decision","message":"block decision","data":{"hostname":"github.com","zones":["facebook.com","instagram.com","tiktok.com","ynet.co.il"],"blocked":false},"timestamp":1773445821619,"hypothesisId":"C"}
+{"sessionId":"be2dda","runId":"v5","location":"content.js:runCheck","message":"start","data":{"hostname":"github.com"},"timestamp":1773445827731,"hypothesisId":"B"}
+{"sessionId":"be2dda","runId":"v5","location":"content.js:storage","message":"storage read","data":{"hostname":"github.com"},"timestamp":1773445832771,"hypothesisId":"B-C"}
+{"sessionId":"be2dda","runId":"v5","location":"content.js:decision","message":"block decision","data":{"hostname":"github.com","zones":["facebook.com","instagram.com","tiktok.com","ynet.co.il"],"blocked":false},"timestamp":1773445832771,"hypothesisId":"C"}
+{"sessionId":"be2dda","runId":"v5","location":"content.js:runCheck","message":"start","data":{"hostname":"github.com"},"timestamp":1773445841209,"hypothesisId":"B"}
+{"sessionId":"be2dda","runId":"v5","location":"content.js:storage","message":"storage read","data":{"hostname":"github.com"},"timestamp":1773445841736,"hypothesisId":"B-C"}
+{"sessionId":"be2dda","runId":"v5","location":"content.js:decision","message":"block decision","data":{"hostname":"github.com","zones":["facebook.com","instagram.com","tiktok.com","ynet.co.il"],"blocked":false},"timestamp":1773445841737,"hypothesisId":"C"}
+{"sessionId":"be2dda","runId":"v5","location":"content.js:runCheck","message":"start","data":{"hostname":"github.com"},"timestamp":1773445852653,"hypothesisId":"B"}
+{"sessionId":"be2dda","runId":"v5","location":"content.js:storage","message":"storage read","data":{"hostname":"github.com"},"timestamp":1773445853282,"hypothesisId":"B-C"}
+{"sessionId":"be2dda","runId":"v5","location":"content.js:decision","message":"block decision","data":{"hostname":"github.com","zones":["facebook.com","instagram.com","tiktok.com","ynet.co.il"],"blocked":false},"timestamp":1773445853283,"hypothesisId":"C"}
