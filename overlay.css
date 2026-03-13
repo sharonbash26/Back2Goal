@@ -1,0 +1,224 @@
+/* ============================================================
+   Back2Goal — Intervention Overlay  (modern redesign)
+   ============================================================ */
+
+#b2g-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+
+  /* frosted-glass backdrop */
+  background: rgba(5, 20, 12, 0.72);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+  animation: b2g-backdrop-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes b2g-backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Card ── */
+.b2g-card {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(155deg, #0d2b1d 0%, #071a10 100%);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  border-radius: 24px;
+  padding: 48px 40px 36px;
+  text-align: center;
+  direction: rtl;
+
+  box-shadow:
+    0 0 0 1px rgba(16, 185, 129, 0.10),
+    0 40px 80px rgba(0, 0, 0, 0.65),
+    0 0 120px rgba(16, 185, 129, 0.08);
+
+  animation: b2g-card-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+  overflow: hidden;
+}
+
+/* subtle glow ring behind card */
+.b2g-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, rgba(16,185,129,0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+@keyframes b2g-card-in {
+  from { opacity: 0; transform: translateY(32px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    }
+}
+
+/* ── Keepi mascot ── */
+.b2g-keepi {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto 8px;
+  display: block;
+  filter: drop-shadow(0 8px 24px rgba(16, 185, 129, 0.45));
+  animation: b2g-keepi-bounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+@keyframes b2g-keepi-bounce {
+  from { opacity: 0; transform: scale(0.5) translateY(20px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0);    }
+}
+
+/* ── Badge ── */
+.b2g-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.32);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #34D399;
+  margin-bottom: 20px;
+}
+
+.b2g-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 6px #10B981;
+  animation: b2g-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes b2g-pulse {
+  0%, 100% { opacity: 1; transform: scale(1);    }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ── Headline ── */
+.b2g-headline {
+  margin: 0 0 12px;
+  font-size: clamp(24px, 5vw, 30px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+  color: #F0FDF4;
+}
+
+/* ── Body copy ── */
+.b2g-body {
+  margin: 0 0 32px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #86EFAC;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+}
+
+/* ── Primary CTA ── */
+.b2g-btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 17px 24px;
+  margin-bottom: 12px;
+
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+
+  box-shadow:
+    0 4px 20px rgba(16, 185, 129, 0.45),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.b2g-btn-primary:hover {
+  background: linear-gradient(135deg, #34D399 0%, #10B981 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(16, 185, 129, 0.55), 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.b2g-btn-primary:active  { transform: translateY(0); }
+.b2g-btn-primary:focus-visible { outline: 3px solid #34D399; outline-offset: 3px; }
+
+/* ── Ghost / dismiss ── */
+.b2g-btn-ghost {
+  display: block;
+  width: 100%;
+  padding: 12px 24px;
+  margin-bottom: 24px;
+
+  background: transparent;
+  color: #4B7A62;
+  border: 1px solid rgba(75, 122, 98, 0.28);
+  border-radius: 12px;
+  cursor: pointer;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.b2g-btn-ghost:hover {
+  color: #86EFAC;
+  border-color: rgba(134, 239, 172, 0.35);
+  background: rgba(16, 185, 129, 0.06);
+}
+
+.b2g-btn-ghost:focus-visible { outline: 2px solid #34D399; outline-offset: 2px; }
+
+/* ── Footer hint ── */
+.b2g-hint {
+  margin: 0;
+  font-size: 12px;
+  color: #2D5A42;
+}
+
+.b2g-hint a {
+  color: #4B7A62;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.b2g-hint a:hover { color: #34D399; }
+
+/* ── Responsive ── */
+@media (max-width: 520px) {
+  .b2g-card    { padding: 36px 24px 28px; border-radius: 18px; }
+  .b2g-headline { font-size: 22px; }
+  .b2g-body    { font-size: 14px; }
+  .b2g-btn-primary { font-size: 16px; padding: 15px 20px; }
+  .b2g-keepi   { width: 80px; height: 80px; }
+}

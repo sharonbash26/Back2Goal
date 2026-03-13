@@ -98,7 +98,7 @@
                     </svg>
                     Active days
                   </dt>
-                  <dd class="summary-value">Mon–Fri</dd>
+                  <dd class="summary-value" id="summary-active-days">Mon–Fri</dd>
                 </div>
                 <div class="summary-row">
                   <dt class="summary-label">
@@ -108,7 +108,7 @@
                     </svg>
                     Reminder interval
                   </dt>
-                  <dd class="summary-value">15 min</dd>
+                  <dd class="summary-value" id="summary-reminder">15 min</dd>
                 </div>
                 <div class="summary-row">
                   <dt class="summary-label">Current plan</dt>
@@ -120,38 +120,7 @@
             <div class="card" role="region" aria-label="Blocked sites">
               <h2 class="card-title" id="blocked-sites-heading">Distraction Zones</h2>
               <ul class="blocked-list" id="blocked-sites-list" role="list" aria-labelledby="blocked-sites-heading">
-                <li class="blocked-row">
-                  <span class="blocked-name">Facebook</span>
-                  <div class="blocked-row-actions">
-                    <button type="button" class="btn-remove-site" aria-label="Remove Facebook from blocked sites">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                    </button>
-                  </div>
-                </li>
-                <li class="blocked-row">
-                  <span class="blocked-name">Instagram</span>
-                  <div class="blocked-row-actions">
-                    <button type="button" class="btn-remove-site" aria-label="Remove Instagram from blocked sites">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                    </button>
-                  </div>
-                </li>
-                <li class="blocked-row">
-                  <span class="blocked-name">Ynet</span>
-                  <div class="blocked-row-actions">
-                    <button type="button" class="btn-remove-site" aria-label="Remove Ynet from blocked sites">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                    </button>
-                  </div>
-                </li>
-                <li class="blocked-row">
-                  <span class="blocked-name">TikTok</span>
-                  <div class="blocked-row-actions">
-                    <button type="button" class="btn-remove-site" aria-label="Remove TikTok from blocked sites">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                    </button>
-                  </div>
-                </li>
+                <!-- populated dynamically by popup.js from chrome.storage -->
               </ul>
               <button type="button" class="btn-add-site" id="btn-add-site" aria-label="Add a distracting site">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
